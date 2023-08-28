@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "cats",
 ]
 
 MIDDLEWARE = [
@@ -73,10 +74,21 @@ WSGI_APPLICATION = "django_project_2.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
+    # this will automatically connect to the db in the database/localhost docker container.
+    # settings can be overridden with environmental variables
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.getenv("SQL_HOST_2", "127.0.0.1"),
+        "PORT": os.getenv("SQL_PORT_2", 6543),
+        "NAME": os.getenv("SQL_DB_2", "db2"),
+        "USER": os.getenv("SQL_USER_2", "pguser"),
+        "PASSWORD": os.getenv("SQL_PASS_2", "password"),
+        "OPTIONS": {
+            "connect_timeout": 3,
+        },
     }
 }
 
