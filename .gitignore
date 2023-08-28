@@ -1,0 +1,8 @@
+venv/
+gitignore/
+airflow.db
+logs/
+__pycache__/
+*.pyc
+standalone_admin_password.txt
+airflow-webserver.pid
