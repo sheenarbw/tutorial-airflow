@@ -2,6 +2,14 @@
 
 You will need to install a few prerequisites in order to take part in this tutorial. Please follow the instructions below:
 
+## Prerequisite knowledge
+
+It will bew useful if you understand:
+
+1. Django models and how they relate to a database
+2. Virtual environments
+3. Environmental variables
+
 ## Prerequisites
 
 - Docker and docker-compose: These are used for running postgres databases
@@ -19,7 +27,7 @@ django_project_2/
 requirements.txt
 ```
 
-- Airflow has a concept called `airflow_home`. THis is where your airflow configuration and dags can be found. 
+- Airflow has a concept called `airflow_home`. This is where your airflow configuration and dags can be found. For now, this directory is empty. That's intentional
 - database: Our django applications will be storing their data in Postgres databases. These are defined through docker-compose
 - django_project_*: We will be showing how airflow can play nice with 2 separate django projects. This is useful because many organisations are likely to run multiple projects
 - requirements.txt: The usual
@@ -57,11 +65,12 @@ Once you have installed the prerequisites then try `pip install -r requirements.
 
 ### 2. Install Airflow
 
-
 Airflow installation is a little bit unusual. To keep things explicit we'll do this in a separate step:
 
 
 ```
+source venv/bin/activate # activate your venv if you haven't already
+
 AIRFLOW_VERSION=2.7.0
 PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
 CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
@@ -69,7 +78,6 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}
 ```
 
 Learn more here: https://airflow.apache.org/docs/apache-airflow/stable/installation/installing-from-pypi.html 
-
 
 ### 3. Set AIRFLOW_HOME 
 
@@ -135,7 +143,22 @@ echo $AIRFLOW_HOME
 
 This should print out the value you put in your activate script.
 
-### 4. Make sure your database runs
+### 4. Run airflow standalone
+
+Let's make sure Airflow is set up properly:
+
+```
+source venv/bin/activate # activate your venv if it's not already active
+airflow standalone
+```
+
+You should see a whole lotta logs. There might be a few warnings but there should be no error messages.
+
+If you look inside your airflow_home directory it'll now be full of stuff. We'll talk about that stuff later :) 
+
+You can now kill this process with Ctrl+C.
+
+### 5. Make sure your database runs
 
 Our Django projects are going to be plugging into some Postgres databases. We'll use Docker and docker-compose to make life easy.
 
@@ -144,7 +167,7 @@ cd database
 docker-compose up
 ```
 
-If you take a look at the docker-composition you'll see that we have made one user, `pguser`. It has the password `password`. There are 3 databases that it has access to:
+If you take a look at the docker-composition you'll see that we have made one user, `pguser`. It has the password `password`. There are 4 databases that it has access to:
 
 - db1: This is used for django_project_1
 - test_db1: This will be used by unit tests running in django_project_1
@@ -153,7 +176,7 @@ If you take a look at the docker-composition you'll see that we have made one us
 
 You will need to have this docker-composition running any time you want to access the django-project databases in any way. 
 
-### 5. Add fake data into Django DBs
+### 6. Add fake data into Django DBs
 
 Make sure your database is running as per 4, then in a separate terminal:
 
@@ -169,3 +192,6 @@ python manage.py migrate
 python manage.py create_demo_data
 ```
 
+### DONE!
+
+You should be able to run the database, the django projects and `airflow standalone` without any problems. 
