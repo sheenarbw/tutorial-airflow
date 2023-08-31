@@ -4,7 +4,7 @@ You will need to install a few prerequisites in order to take part in this tutor
 
 ## Prerequisite knowledge
 
-It will bew useful if you understand:
+It will be useful if you understand:
 
 1. Django models and how they relate to a database
 2. Virtual environments
