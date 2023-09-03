@@ -17,7 +17,6 @@ python airflow_home/dags/dag_1.py
 """
 
 from datetime import timedelta
-
 from airflow.decorators import task, dag
 import pendulum
 import logging
@@ -31,6 +30,8 @@ import logging
     default_args={},
 )
 def dag_2():
+    # print("----- running dag2()")
+
     @task()
     def task1():
         print("Hello from task 1")

@@ -31,8 +31,11 @@ from airflow.decorators import task, dag
 import pendulum
 import logging
 
+DAG_COUNT = 1
 
-for dag_number in range(1):
+dags = []
+
+for dag_number in range(DAG_COUNT):
 
     @dag(
         dag_id=f"dag_5_{dag_number}",
@@ -73,4 +76,9 @@ for dag_number in range(1):
 
         task3(*task_2_returns)
 
-    dag_5()
+    dags.append(dag_5())
+
+
+if __name__ == "__main__":
+    for dag in dags:
+        dag.test()

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Apache Airflow tutorial</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Airflow</h1>
+				</section>
+
+				<section>
+					<h2>Hi, I'm Sheena</h2>
+
+					<ul>
+						<li>Started coding as a teenager (>20 years ago)</li>
+						<li>Python is my love language</li>
+						<li>CTO @ Umuzi</li>
+						<li>Mission: To reduce social inequality in Africa through digital education</li>
+					</ul>
+				</section>
+
+				
+
+				<section>
+					<section>
+					  <h3>
+						As data-driven organizations grow...
+					  </h3>
+					  <ul>
+						<li class="fragment">Workflow requirements grow</li>
+						<li class="fragment">Multiple data sources</li>
+						<li class="fragment">Complex networks of processes</li>
+						<li class="fragment">
+						  intricate dependencies
+						</li class="fragment">
+						<li class="fragment">Specific schedules</li>
+						<li class="fragment">Stakeholder requirements grow and shift</li>
+					  </ul>
+					</section>
+
+					<section>
+						<img src="https://imgs.xkcd.com/comics/data_pipeline.png" width="1500" />
+					</section>
+		  
+					<section>
+					  <h3>
+						We need...
+					  </h3>
+					  <ul>
+						<li class="fragment">monitoring</li>
+						<li class="fragment">retries</li>
+						<li class="fragment">maintainable code</li>
+						<li class="fragment">sane development workflows</li>
+						<li class="fragment">scale up</li>
+						<li class="fragment">authorization</li>
+						<li class="fragment">SLA</li>
+					  </ul>
+					</section>
+				  </section>
+
+				  <section>
+					<h2>Enter Airflow</h2>
+				
+					<ul>
+						<li>Created by AirBnB to solve their problems</li>
+						<li>Donated to Apache</li>
+						<li>Powerful tool with big community</li>
+						<li>Not just for data pipelines</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>
+						&lt / INTRODUCTION &gt
+					</h1>
+				</section>
+
+				<section>
+					<h2>
+						&lt Technical stuff&gt
+					</h2>
+				</section>
+
+
+				<section>
+					<h2>Is everyone able to...</h2>
+
+					<ul>
+						<li>Use docker-compose to run their postgres db?</li>
+						<li>Run the `create_demo_data` management script for both the django apps?</li>
+						<li>Run `airflow standalone`?</li>
+					</ul>
+				</section>
+
+				<section>
+					One more thing before we get our hands dirty...
+				</section>
+
+				<section>
+					<h2>Core concept: DAG</h2>
+					<img src="images/dag.png" width="1500" />
+					<ul>
+						<li>== Directed Acyclic Graph</li>
+						<li>Each node on the graph is a `Task`</li>
+					</ul>
+				</section>	
+					
+				<section>
+
+					<h2>Exploring Airflow standalone</h2>
+					
+					<pre data-id="code-animation"><code class="hljs bash" data-trim>
+						cd src
+						source venv/bin/activate 
+
+						rm -rf airflow_home 
+						mkdir airflow_home 
+
+						airflow standalone
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>How observant are you?</h2>
+
+					<ul>
+						<li>what kind of database is Airflow using by default? </li>
+						<li>what url and port is the webserver listening at?</li>
+						<li>where can you find the default admin password?</li>
+						<li>is Airflow standalone suitable for production?</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Exploring the frontend</h2>
+
+						<ul>
+							<li><a>http://0.0.0.0:8080/</a></li>
+							<li>Log in as admin</li>
+							<li>Can you see the warnings at the top of the page?</li>
+							<li>We are looking at a list of DAGs</li>
+							<li>Search for "example bash operator"</li>
+							<li>Turn it on using the toggle</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>See if you can...</h2>
+						<ul>
+							<li>Find a picture of the DAG graph</li>
+							<li>View the logs of any task</li>
+							<li>Trigger the dag</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>Look at the code. This is a DAG file</h2>
+						<ul>
+							<li>Why is airflow asking you for a value for `example_key` when you trigger the dag?</li>
+							<li>How are tasks specified?</li>
+							<li>How is task ordering specified?</li>
+							<li>What are the consequences of putting secret values (eg db passwords) inside a dag file?</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Open Your airflow.cfg file</h2>
+		
+					<ul>
+						<li>Where should you store your dag files?</li>
+						<li>Are there any files stored there now?</li>
+						<li>Where is your plugins folder?</li>
+						<li>Set `load_examples = False` + restart `standalone`. Surprised?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Core concepts</h2>
+					<ul>
+						<li>DAG</li>
+						<li>DAG file</li>
+						<li>Tasks versus Operators</li>
+						<li>Task dependencies</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Architecture interlude</h2>
+						<img src="images/arch-diag-basic.png" width="800" />
+					</section>
+					<section>
+						<h2>Critical understanding</h2>
+		
+						<ul>
+							<li>
+								Different Tasks in the same Dag might execute on different workers during the same run
+							</li>
+							<li>Don't make assumptions about shared filesystem</li>
+							<li>Don't try to use global variables to pass data between tasks</li>
+							<li>Assume: Each Task runs on a separate computer</li>
+							<li>Dag files need to be cheap to run, they run OFTEN</li>
+						</ul>
+					</section>
+
+					
+				</section>
+
+				<section>
+					<section>
+						<h2>Let's write some DAGs</h2>
+					</section>
+
+					<section>
+						<h2>DAG 1</h2>
+					</section>
+				</section>
+				<section>
+
+					<section>
+						<h2>How to pass data from one Task to another?</h2>
+						<ul>
+							<li>IMPORTANT: Tasks should be designed to run on diff computers</li>
+							<li>Can't just pass data around in variables</li>
+							<li>No shared local disk space</li>
+
+
+							<!-- <li>Small data: XCom</li>
+							<li>Large data: database, shared volume, cloud storage... do what you need to do</li> -->
+						</ul>
+					</section>
+
+					<section>
+						<h2>Enter XCOMS</h2>
+						<ul>
+							<li>== Cross communications</li>
+							<li>Tasks store and fetch data from metadata db</li>
+							<li>If Postgres: Max size = 1GB. But it gets slow</li>
+							<li>Use only for small simple data</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>XCOM access</h2>
+						<ul>
+							<li>dag_id + task_id + key + value</li>
+							<li>Tasks can `xcom_push` to set values</li>
+							<li>Tasks can `xcom_pull` to get values</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="images/xcoms.drawio.svg" width="800" style="background-color: white; padding-top: 0.5em;" />
+					</section>
+
+					<section>
+						<h2>DAG 2</h2>
+						A contradiction?
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Connecting to Django apps</h2>
+					</section>
+					<section>
+						<h2>DAG 3</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The @dag decorator</h2>
+					</section>
+					<section>
+						<h2>DAG 4</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Dynamic Dags</h2>
+					</section>
+					<section>
+						<h2>DAG 5</h2>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Custom XCom backend</h2>
+						xcom_backend = custom_xcom_backend.SillyBackend
+						
+					</section>
+					
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

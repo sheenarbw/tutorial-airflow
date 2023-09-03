@@ -16,7 +16,6 @@ pay attention to arg value. How do we set it?
 
 from datetime import timedelta
 from airflow import DAG
-
 from airflow.decorators import task
 import pendulum
 import logging

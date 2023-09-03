@@ -23,7 +23,8 @@ from airflow import DAG
 from airflow.decorators import task
 import pendulum
 import logging
-import time
+
+# import time
 
 with DAG(
     "dag_1",

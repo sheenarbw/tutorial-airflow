@@ -1,3 +1,14 @@
+"""
+To use, set this in your airflow.cfg:
+xcom_backend = custom_xcom_backend.SillyBackend
+
+Docs:
+https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/xcoms.html#custom-xcom-backends
+
+Examples of cloud blob storage:
+https://docs.astronomer.io/learn/xcom-backend-tutorial?tab=gcp#step-4-define-a-custom-xcom-class-using-json-serialization
+"""
+
 from airflow.models.xcom import BaseXCom
 from pathlib import Path
 import json

@@ -6,3 +6,5 @@ __pycache__/
 *.pyc
 standalone_admin_password.txt
 airflow-webserver.pid
+
+node_modules/

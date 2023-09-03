@@ -11,7 +11,6 @@ from airflow.decorators import task, dag
 import pendulum
 import logging
 from airflow.models.param import Param
-from airflow.operators.python import get_current_context
 
 
 @dag(
@@ -33,6 +32,8 @@ def dag_7():
         },
     )
     def task1():
+        from airflow.operators.python import get_current_context
+
         context = get_current_context()
         params = context.get("params")
         for k, v in params.items():
