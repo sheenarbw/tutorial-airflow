@@ -1,17 +1,19 @@
 """
-demonstrate:
+# Demonstrate:
+
 - task dependencies and taskflow api
 - look at XCOM values in gui
 
-Command-line demo:
+# Command-line demo:
 
-airflow dags test dag_2
-python airflow_home/dags/dag_2.py
+airflow dags test dag_3
+python airflow_home/dags/dag_3.py
 
-airflow tasks test dag_2 task1 2023-01-01
+airflow tasks test dag_3 task1 2023-01-01
 
-airflow tasks test dag_2 task2 2023-01-01
-pay attention to arg value. How do we set it?
+airflow tasks test dag_3 task2 2023-01-01
+
+- pay attention to `arg` value. How do we set it?
 """
 
 from datetime import timedelta

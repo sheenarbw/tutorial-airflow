@@ -1,26 +1,14 @@
 """
-demonstrate:
-- refreshing the dag file
-- dag files must be quick
-- when are things printed to the console versus logs
-- logging.* versus print 
+# Demonstrate:
 
+- change DAG_COUNT number
 
-Command-line demo:
-
-airflow dags reserialize
-airflow dags report
-airflow dags list-import-errors
-
-airflow dags test dag_1
-airflow tasks test dag_1 task1 2023-01-01
-python airflow_home/dags/dag_1.py
-
-# docs:
+# Docs:
 
 https://airflow.apache.org/docs/apache-airflow/stable/howto/dynamic-dag-generation.html
 
 # Questions
+
 - dynamic dags are created according to some data or information. Where can that come from? Here we hardcoded things and just looped over a range. Can you think of something more realistic? 
 - task2 takes in 2 arguments, where do they come from?
 """

@@ -1,19 +1,19 @@
 """
-demonstrate:
-- refreshing the dag file
-- dag files must be quick
-- when are things printed to the console versus logs
-- logging.* versus print 
+# @dag versus with Dag
 
-Command-line demo:
+It's very similar. @dag is the modern way to do it.
+
+- When does the print on line 22 run? 
+
+# Command-line demo:
 
 airflow dags reserialize
 airflow dags report
 airflow dags list-import-errors
 
-airflow dags test dag_1
-airflow tasks test dag_1 task1 2023-01-01
-python airflow_home/dags/dag_1.py
+airflow dags test dag_2
+airflow tasks test dag_2 task1 2023-01-01
+python airflow_home/dags/dag_2.py
 """
 
 from datetime import timedelta
@@ -30,11 +30,11 @@ import logging
     default_args={},
 )
 def dag_2():
-    # print("----- running dag2()")
+    print("----- running dag2()")
 
     @task()
     def task1():
-        print("Hello from task 1")
+        logging.info("Hello from task 1")
 
     @task()
     def task2():

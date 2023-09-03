@@ -1,3 +1,14 @@
+"""
+# Demonstrate:
+
+- this will fail if postgres db not running 
+- django decorators are hard to reason about
+- django connect method is much easier
+- need to be careful how we connect to django or it breaks logging
+- task5: this wont work
+
+"""
+
 from datetime import timedelta
 from airflow import DAG
 

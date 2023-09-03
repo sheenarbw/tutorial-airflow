@@ -1,12 +1,19 @@
 """
-airflow variables import airflow_home/dags/dag_6_variables.json
-visit: http://localhost:8080/variable/list/ 
+# Load variables via command line:
 
-# docs:
+`airflow variables import airflow_home/dags/dag_6_variables.json`
+
+Visit: http://localhost:8080/variable/list/ 
+
+# Demonstrate:
+
+- Uncomment top level vars. Does this seem like a good idea?
+
+# Docs:
 
 https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/variables.html#variables
 
-For security purpose, you’re recommended to use the Secrets Backend for any variable that contains sensitive data.
+For security purpose, you're recommended to use the Secrets Backend for any variable that contains sensitive data.
 
 https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/secrets-backend/index.html#secrets-backend-configuration
 """

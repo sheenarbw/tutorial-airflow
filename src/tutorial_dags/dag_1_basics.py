@@ -1,12 +1,12 @@
 """
-demonstrate:
+# Demonstrate:
+
 - refreshing the dag file
-- dag files must be quick
+- dag files must be quick. use time.sleep() to demonstrate
 - when are things printed to the console versus logs
 - logging.* versus print 
 
-
-Command-line demo:
+# Command-line demo:
 
 airflow dags reserialize
 airflow dags report
