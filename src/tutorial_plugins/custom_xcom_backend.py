@@ -1,3 +1,9 @@
+"""
+# Question:
+
+What's so silly about this backend?
+"""
+
 from airflow.models.xcom import BaseXCom
 from pathlib import Path
 import json
@@ -8,10 +14,6 @@ STORAGE_PATH = Path("gitignore/xcom_storage")
 
 
 class SillyBackend(BaseXCom):
-    """
-    This is silly because Tasks don't share a filesystem. It's just here to demonstrate how you can make your own custom xcom backend.
-    """
-
     @staticmethod
     def serialize_value(
         value,
@@ -29,7 +31,6 @@ class SillyBackend(BaseXCom):
         with open(file_path, "w") as f:
             json.dump(value, f, indent=4, sort_keys=True)
 
-        logging.info(f"file_path = {file_path}")
         result = BaseXCom.serialize_value(str(file_path))
         return result
 
