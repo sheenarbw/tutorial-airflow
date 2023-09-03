@@ -1,16 +1,17 @@
 """
 demonstrate:
-- task dependencies comes from arguments
-- 
+- task dependencies and taskflow api
+- look at XCOM values in gui
 
 Command-line demo:
 
-airflow dags reserialize
-airflow dags list-import-errors
+airflow dags test dag_2
+python airflow_home/dags/dag_2.py
 
-airflow test dag_1 task1 2023-01-01
-python airflow_home/dags/dag_1.py
+airflow tasks test dag_2 task1 2023-01-01
 
+airflow tasks test dag_2 task2 2023-01-01
+pay attention to arg value. How do we set it?
 """
 
 from datetime import timedelta
