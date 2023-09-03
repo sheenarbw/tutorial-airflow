@@ -22,7 +22,7 @@ import pendulum
 import logging
 
 with DAG(
-    "dag_2",
+    "dag_3",
     description="DAG 2",
     schedule=timedelta(days=1),
     start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),

@@ -12,7 +12,7 @@ from django_operator import (
 )
 
 with DAG(
-    "dag_3",
+    "dag_4",
     description="DAG 3",
     schedule=timedelta(days=1),
     start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),

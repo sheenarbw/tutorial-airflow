@@ -1,0 +1,8 @@
+{
+    "dag_6": {
+        "float": 1.23,
+        "str": "Hello World",
+        "bool": false,
+        "none": null
+    }
+}

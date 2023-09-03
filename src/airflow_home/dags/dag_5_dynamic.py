@@ -20,6 +20,9 @@ python airflow_home/dags/dag_1.py
 
 https://airflow.apache.org/docs/apache-airflow/stable/howto/dynamic-dag-generation.html
 
+# Questions
+- dynamic dags are created according to some data or information. Where can that come from? Here we hardcoded things and just looped over a range. Can you think of something more realistic? 
+- task2 takes in 2 arguments, where do they come from?
 """
 
 from datetime import timedelta
@@ -29,7 +32,7 @@ import pendulum
 import logging
 
 
-for dag_number in range(2):
+for dag_number in range(1):
 
     @dag(
         dag_id=f"dag_5_{dag_number}",

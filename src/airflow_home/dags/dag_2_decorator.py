@@ -5,7 +5,6 @@ demonstrate:
 - when are things printed to the console versus logs
 - logging.* versus print 
 
-
 Command-line demo:
 
 airflow dags reserialize
@@ -31,7 +30,7 @@ import logging
     tags=["tutorial"],
     default_args={},
 )
-def dag_4():
+def dag_2():
     @task()
     def task1():
         print("Hello from task 1")
@@ -43,7 +42,7 @@ def dag_4():
     task1() >> task2()
 
 
-dag_instance = dag_4()
+dag_instance = dag_2()
 
 
 if __name__ == "__main__":
