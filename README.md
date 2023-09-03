@@ -22,8 +22,8 @@ In this tutorial, we’ll be starting off by getting to grips with Airflow as a 
 It would be useful if you are familiar with:
 
 - Python of course
-- virtual environments
-- environmental variables
+- Virtual environments
+- Environmental variables
 
 ## Directory structure
 
@@ -35,6 +35,7 @@ database/
 django_project_1/
 django_project_2/
 tutorial_dags/
+tutorial_plugins/
 requirements.txt
 ```
 
