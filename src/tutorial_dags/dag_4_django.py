@@ -9,6 +9,7 @@ from django_operator import (
     django_project_1_task,
     django_project_2_task,
     django_connect,
+    SRC_DIRECTORY,
 )
 
 with DAG(
@@ -43,7 +44,7 @@ with DAG(
     @task()
     def task4(arg):
         django_connect(
-            app_path="/home/sheena/workspace/airflow-tutorial/src/django_project_1",
+            app_path=SRC_DIRECTORY / "django_project_1",
             settings_module="django_project_1.settings",
         )
 
@@ -57,7 +58,7 @@ with DAG(
     # @task()
     # def task5():
     #     django_connect(
-    #         app_path="/home/sheena/workspace/airflow-tutorial/src/django_project_1",
+    #         app_path=SRC_DIRECTORY/"django_project_1",
     #         settings_module="django_project_1.settings",
     #     )
     #     from dogs.models import Dog
@@ -65,7 +66,7 @@ with DAG(
     #     dog = Dog.objects.first()
 
     #     django_connect(
-    #         app_path="/home/sheena/workspace/airflow-tutorial/src/django_project_2",
+    #         app_path=SRC_DIRECTORY/"django_project_2",
     #         settings_module="django_project_2.settings",
     #     )
     #     from cats.models import Cat
