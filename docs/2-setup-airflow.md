@@ -9,7 +9,9 @@ Airflow home has a default value that doesn't make sense for a development envir
 If you are using bash (or similar) you could do this to print out the absolute path.
 
 ```
-cd src/airflow_home
+cd src # if you aren't there already
+
+cd airflow_home
 pwd
 ```
 

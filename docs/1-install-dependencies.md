@@ -15,6 +15,7 @@ Note: Airflow does not yet support any package managers beyond pip. Eg `poetry` 
 
 ```
 cd src 
+
 python3.10 -m venv venv
 source venv/bin/activate 
 
@@ -41,6 +42,8 @@ Once you have installed the prerequisites then try `pip install -r requirements.
 Airflow installation is a little bit unusual. To keep things explicit we'll do this in a separate step:
 
 ```
+cd src # if you aren't there already
+
 source venv/bin/activate # activate your venv if you haven't already
 
 AIRFLOW_VERSION=2.7.0

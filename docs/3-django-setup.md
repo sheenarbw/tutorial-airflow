@@ -7,7 +7,7 @@ This tutorial will cover how you can connect Airflow to Django. So let's get tha
 Our Django projects are going to be plugging into some Postgres databases. We'll use Docker and docker-compose to make life easy.
 
 ```
-cd database
+cd src/database
 docker-compose up
 ```
 
@@ -27,7 +27,7 @@ Make sure your database is running as per 4, then in a separate terminal:
 Activate your virtual env then: 
 
 ```
-cd django_project_1
+cd src/django_project_1
 python manage.py migrate 
 python manage.py create_demo_data
 
