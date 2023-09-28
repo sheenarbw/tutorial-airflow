@@ -24,13 +24,23 @@
 					<h2>Hi, I'm Sheena</h2>
 
 					<ul>
-						<li>Started coding as a teenager (>20 years ago)</li>
-						<li>Python is my love language</li>
-						<li>CTO @ Umuzi</li>
-						<li>Mission: To reduce social inequality in Africa through digital education</li>
+						<li class="fragment">Started coding as a teenager (>20 years ago)</li>
+						<li class="fragment">Python is my love language</li>
+						<li class="fragment">CTO @ Umuzi</li>
+						<li class="fragment">Mission: To reduce social inequality in Africa through digital education</li>
 					</ul>
 				</section>
 
+				<section>
+					<h2>How this works</h2>
+					<ul>
+						<li class="fragment">"Sage on the stage" kept to a minimum</li>
+						<li class="fragment">Mainly practical and exploratory</li>
+						<li class="fragment">I'll be asking you to share your screen :)</li>
+						<li class="fragment">Ask questions at any time. But please raise your hand</li>
+						<li class="fragment">If I can't answer a question, I'll get back to you</li>
+					</ul>
+				</section>
 				
 
 				<section>
@@ -74,10 +84,10 @@
 					<h2>Enter Airflow</h2>
 				
 					<ul>
-						<li>Created by AirBnB to solve their problems</li>
-						<li>Donated to Apache</li>
-						<li>Powerful tool with big community</li>
-						<li>Not just for data pipelines</li>
+						<li class="fragment">Created by AirBnB to solve their problems</li>
+						<li class="fragment">Donated to Apache</li>
+						<li class="fragment">Powerful tool with big community</li>
+						<li class="fragment">Not just for data pipelines</li>
 					</ul>
 				</section>
 
@@ -98,9 +108,9 @@
 					<h2>Is everyone able to...</h2>
 
 					<ul>
-						<li>Use docker-compose to run their postgres db?</li>
-						<li>Run the `create_demo_data` management script for both the django apps?</li>
-						<li>Run `airflow standalone`?</li>
+						<li class="fragment">Use docker-compose to run their postgres db?</li>
+						<li class="fragment">Run the `create_demo_data` management script for both the django apps?</li>
+						<li class="fragment">Run `airflow standalone`?</li>
 					</ul>
 				</section>
 
@@ -112,8 +122,8 @@
 					<h2>Core concept: DAG</h2>
 					<img src="images/dag.png" width="1500" />
 					<ul>
-						<li>== Directed Acyclic Graph</li>
-						<li>Each node on the graph is a `Task`</li>
+						<li class="fragment">== Directed Acyclic Graph</li>
+						<li class="fragment">Each node on the graph is a `Task`</li>
 					</ul>
 				</section>	
 					
@@ -136,10 +146,10 @@
 					<h2>How observant are you?</h2>
 
 					<ul>
-						<li>what kind of database is Airflow using by default? </li>
-						<li>what url and port is the webserver listening at?</li>
-						<li>where can you find the default admin password?</li>
-						<li>is Airflow standalone suitable for production?</li>
+						<li class="fragment">what kind of database is Airflow using by default? </li>
+						<li class="fragment">what url and port is the webserver listening at?</li>
+						<li class="fragment">where can you find the default admin password?</li>
+						<li class="fragment">is Airflow standalone suitable for production?</li>
 					</ul>
 				</section>
 
@@ -148,31 +158,32 @@
 						<h2>Exploring the frontend</h2>
 
 						<ul>
-							<li><a>http://0.0.0.0:8080/</a></li>
-							<li>Log in as admin</li>
-							<li>Can you see the warnings at the top of the page?</li>
-							<li>We are looking at a list of DAGs</li>
-							<li>Search for "example bash operator"</li>
-							<li>Turn it on using the toggle</li>
+							<li class="fragment"><a>http://0.0.0.0:8080/</a></li>
+							<li class="fragment">Log in as admin</li>
+							<li class="fragment">Can you see the warnings at the top of the page?</li>
+							<li class="fragment">We are looking at a list of DAGs</li>
+							<li class="fragment">Search for "example bash operator"</li>
+							<li class="fragment">Turn it on using the toggle</li>
+							<li class="fragment">Run the dag</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>See if you can...</h2>
 						<ul>
-							<li>Find a picture of the DAG graph</li>
-							<li>View the logs of any task</li>
-							<li>Trigger the dag</li>
+							<li class="fragment">Find a picture of the DAG graph</li>
+							<li class="fragment">View the logs of any task</li>
+							<li class="fragment">Trigger the dag</li>
 						</ul>
 					</section>
 					
 					<section>
 						<h2>Look at the code. This is a DAG file</h2>
 						<ul>
-							<li>Why is airflow asking you for a value for `example_key` when you trigger the dag?</li>
-							<li>How are tasks specified?</li>
-							<li>How is task ordering specified?</li>
-							<li>What are the consequences of putting secret values (eg db passwords) inside a dag file?</li>
+							<li class="fragment">Why is airflow asking you for a value for `example_key` when you trigger the dag?</li>
+							<li class="fragment">How are tasks specified?</li>
+							<li class="fragment">How is task ordering specified?</li>
+							<li class="fragment">What are the consequences of putting secret values (eg db passwords) inside a dag file?</li>
 						</ul>
 					</section>
 				</section>
@@ -181,20 +192,20 @@
 					<h2>Open Your airflow.cfg file</h2>
 		
 					<ul>
-						<li>Where should you store your dag files?</li>
-						<li>Are there any files stored there now?</li>
-						<li>Where is your plugins folder?</li>
-						<li>Set `load_examples = False` + restart `standalone`. Surprised?</li>
+						<li class="fragment">Where should you store your dag files?</li>
+						<li class="fragment">Are there any files stored there now?</li>
+						<li class="fragment">Where is your plugins folder?</li>
+						<li class="fragment">Set `load_examples = False` + restart `standalone`. Surprised?</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Core concepts</h2>
 					<ul>
-						<li>DAG</li>
-						<li>DAG file</li>
-						<li>Tasks versus Operators</li>
-						<li>Task dependencies</li>
+						<li class="fragment">DAG</li>
+						<li class="fragment">DAG file</li>
+						<li class="fragment">Tasks versus Operators</li>
+						<li class="fragment">Task dependencies</li>
 					</ul>
 				</section>
 
@@ -207,13 +218,13 @@
 						<h2>Critical understanding</h2>
 		
 						<ul>
-							<li>
+							<li class="fragment">
 								Different Tasks in the same Dag might execute on different workers during the same run
 							</li>
-							<li>Don't make assumptions about shared filesystem</li>
-							<li>Don't try to use global variables to pass data between tasks</li>
-							<li>Assume: Each Task runs on a separate computer</li>
-							<li>Dag files need to be cheap to run, they run OFTEN</li>
+							<li class="fragment">Don't make assumptions about shared filesystem</li>
+							<li class="fragment">Don't try to use global variables to pass data between tasks</li>
+							<li class="fragment">Assume: Each Task runs on a separate computer</li>
+							<li class="fragment">Dag files need to be cheap to run, they run OFTEN</li>
 						</ul>
 					</section>
 
@@ -238,32 +249,32 @@
 					<section>
 						<h2>How to pass data from one Task to another?</h2>
 						<ul>
-							<li>IMPORTANT: Tasks should be designed to run on diff computers</li>
-							<li>Can't just pass data around in variables</li>
-							<li>No shared local disk space</li>
+							<li class="fragment">IMPORTANT: Tasks should be designed to run on diff computers</li>
+							<li class="fragment">Can't just pass data around in variables</li>
+							<li class="fragment">No shared local disk space</li>
 
 
-							<!-- <li>Small data: XCom</li>
-							<li>Large data: database, shared volume, cloud storage... do what you need to do</li> -->
+							<!-- <li class="fragment">Small data: XCom</li>
+							<li class="fragment">Large data: database, shared volume, cloud storage... do what you need to do</li> -->
 						</ul>
 					</section>
 
 					<section>
 						<h2>Enter XCOMS</h2>
 						<ul>
-							<li>== Cross communications</li>
-							<li>Tasks store and fetch data from metadata db</li>
-							<li>If Postgres: Max size = 1GB. But it gets slow</li>
-							<li>Use only for small simple data</li>
+							<li class="fragment">== Cross communications</li>
+							<li class="fragment">Tasks store and fetch data from metadata db</li>
+							<li class="fragment">If Postgres: Max size = 1GB. But it gets slow</li>
+							<li class="fragment">Use only for small simple data</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>XCOM access</h2>
 						<ul>
-							<li>dag_id + task_id + key + value</li>
-							<li>Tasks can `xcom_push` to set values</li>
-							<li>Tasks can `xcom_pull` to get values</li>
+							<li class="fragment">dag_id + task_id + key + value</li>
+							<li class="fragment">Tasks can `xcom_push` to set values</li>
+							<li class="fragment">Tasks can `xcom_pull` to get values</li>
 						</ul>
 					</section>
 
