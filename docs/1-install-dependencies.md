@@ -4,7 +4,7 @@
 
 You'll need the following:
 
-- Docker and docker-compose: We will be using these to run some Postgres databases
+- Docker and docker-compose: We will be using these to run some Postgres databases for the Django examples
 - Python 3.10: Unfortunately, Airflow doesn't officially support 3.11 yet
 
 ### 2. Set up a virtual environment
@@ -13,11 +13,13 @@ In real-world projects, it's likely that Airflow and the Django projects would b
 
 Note: Airflow does not yet support any package managers beyond pip. Eg `poetry` is not officially supported. So we are doing things in a bit of an old-school way:
 
+### 3. Install the Django prerequisites
+
 ```
 cd src 
 
 python3.10 -m venv venv
-source venv/bin/activate 
+source venv/bin/activate  
 
 pip install -r requirements.txt 
 ```
@@ -37,7 +39,7 @@ sudo apt install libpq-dev
 
 Once you have installed the prerequisites then try `pip install -r requirements.txt` again.
 
-### 2. Install Airflow
+### 4. Install Airflow
 
 Airflow installation is a little bit unusual. To keep things explicit we'll do this in a separate step:
 
