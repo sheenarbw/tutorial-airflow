@@ -11,32 +11,65 @@
 		<link rel="stylesheet" href="dist/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<!-- <link rel="stylesheet" href="plugin/highlight/monokai.css">4 -->
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+		<link rel="stylesheet" href="umuzi-branding/theme.css"/>
+
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Airflow</h1>
+						<h1>
+							Apache Airflow tutorial</h1>
+							
+							<img src="images/repo_qr.png" width="300" />
+							git@github.com:sheenarbw/airflow-tutorial.git
 				</section>
+
+				
 
 				<section>
-					<h2>Hi, I'm Sheena</h2>
+					<h2>
+					  Hi, I'm <a href="https://www.linkedin.com/in/sheena-o-connell-0bb72527/"> Sheena </a>
+					</h2>
+					
+					<table>
+					  <tr>
+						<td style="vertical-align: top">
+						  <ul>
+							<li class="fragment">
+								  CTO of <a href="http://umuzi.org/">Umuzi</a>
+							</li>
+							<li class="fragment">I build effective + efficient remote education systems
+								<span class="fragment">== tech + people + syllabus + ux</span>
+							</li>
+							<li class="fragment">Learned to code around 20 years ago 🍌</li>
+							<li class="fragment">Always had a passion for education</li>
 
-					<ul>
-						<li class="fragment">Started coding as a teenager (>20 years ago)</li>
-						<li class="fragment">Python is my love language</li>
-						<li class="fragment">CTO @ Umuzi</li>
-						<li class="fragment">Mission: To reduce social inequality in Africa through digital education</li>
-					</ul>
-				</section>
+						</ul>
+					</td>
+					<td width="350" style="vertical-align: middle">
+						<img
+						src="images/Me no background.png"
+						class="avitar"
+						width="350"
+						/>
+						<span></span>
+					</td>
+				</tr>
+			</table>
+			<span class="fragment">🧗‍♀️🏕️🧭⛰️🎸🔥🐍</span>
+				  </section>
 
 				<section>
 					<h2>How this works</h2>
 					<ul>
 						<li class="fragment">"Sage on the stage" kept to a minimum</li>
 						<li class="fragment">Mainly practical and exploratory</li>
-						<li class="fragment">I'll be asking you to share your screen :)</li>
+						<li class="fragment">I'll be asking you questions o.O</li>
 						<li class="fragment">Ask questions at any time. But please raise your hand</li>
 						<li class="fragment">If I can't answer a question, I'll get back to you</li>
 					</ul>
@@ -93,7 +126,7 @@
 
 				<section>
 					<h1>
-						&lt / INTRODUCTION &gt
+						&lt / INTRO &gt
 					</h1>
 				</section>
 
@@ -104,20 +137,14 @@
 				</section>
 
 
-				<section>
-					<h2>Is everyone able to...</h2>
+				
 
-					<ul>
-						<li class="fragment">Use docker-compose to run their postgres db?</li>
-						<li class="fragment">Run the `create_demo_data` management script for both the django apps?</li>
-						<li class="fragment">Run `airflow standalone`?</li>
-					</ul>
-				</section>
 
+				
 				<section>
 					One more thing before we get our hands dirty...
 				</section>
-
+				
 				<section>
 					<h2>Core concept: DAG</h2>
 					<img src="images/dag.png" width="1500" />
@@ -125,8 +152,16 @@
 						<li class="fragment">== Directed Acyclic Graph</li>
 						<li class="fragment">Each node on the graph is a `Task`</li>
 					</ul>
-				</section>	
-					
+				</section>
+
+				<section>
+					<h2>Is everyone able to run...</h2>
+
+					<pre data-id="code-animation"><code class="hljs bash" data-trim>
+					airflow standalone
+					</code></pre>
+				</section>
+				
 				<section>
 
 					<h2>Exploring Airflow standalone</h2>
@@ -135,7 +170,7 @@
 						cd src
 						source venv/bin/activate 
 
-						rm -rf airflow_home 
+						rm -rf airflow_home # if you already played with it
 						mkdir airflow_home 
 
 						airflow standalone
@@ -148,6 +183,7 @@
 					<ul>
 						<li class="fragment">what kind of database is Airflow using by default? </li>
 						<li class="fragment">what url and port is the webserver listening at?</li>
+						<li class="fragment">Where is the configuration file?</li>
 						<li class="fragment">where can you find the default admin password?</li>
 						<li class="fragment">is Airflow standalone suitable for production?</li>
 					</ul>
@@ -163,8 +199,8 @@
 							<li class="fragment">Can you see the warnings at the top of the page?</li>
 							<li class="fragment">We are looking at a list of DAGs</li>
 							<li class="fragment">Search for "example bash operator"</li>
-							<li class="fragment">Turn it on using the toggle</li>
-							<li class="fragment">Run the dag</li>
+							<li class="fragment">Turn it on using the toggle (top left)</li>
+							
 						</ul>
 					</section>
 
@@ -173,7 +209,7 @@
 						<ul>
 							<li class="fragment">Find a picture of the DAG graph</li>
 							<li class="fragment">View the logs of any task</li>
-							<li class="fragment">Trigger the dag</li>
+							<li class="fragment">Trigger the dag (play button, top right)</li>
 						</ul>
 					</section>
 					
@@ -195,7 +231,7 @@
 						<li class="fragment">Where should you store your dag files?</li>
 						<li class="fragment">Are there any files stored there now?</li>
 						<li class="fragment">Where is your plugins folder?</li>
-						<li class="fragment">Set `load_examples = False` + restart `standalone`. Surprised?</li>
+						<li class="fragment">Set `load_examples = False`</li>
 					</ul>
 				</section>
 
@@ -303,6 +339,11 @@
 				<section>
 					<h2>Connecting to Django apps</h2>
 					<h2>DAG 4</h2>
+					Is everyone able to...
+					<ul>
+						<li class="fragment">Use docker-compose to run their postgres db?</li>
+						<li class="fragment">Run the `create_demo_data` management script for both the django apps?</li>
+					</ul>
 				</section>
 
 				<section>
