@@ -6,6 +6,8 @@ Follow me on the socials if you want more of this kind of thing:
 - [Fossdon: @sheena](https://fosstodon.org/@sheena)
 - [Twitter: @sheena_oconnell](https://twitter.com/sheena_oconnell)
 
+I also run panel discussions with fantastic nerds from time to time. You can find those [here](https://www.youtube.com/@dev-mesh/streams)
+
 ## Introduction
 
 As data-driven organizations grow, life gets… complicated
