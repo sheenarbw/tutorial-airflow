@@ -1,5 +1,13 @@
 # Airflow tutorial
 
+Follow me on the socials if you want more of this kind of thing:
+
+- [Mastadon: @sheenarbw](https://mastodon.social/@sheenarbw)
+- [Fossdon: @sheena](https://fosstodon.org/@sheena)
+- [Twitter: @sheena_oconnell](https://twitter.com/sheena_oconnell)
+
+## Introduction
+
 As data-driven organizations grow, life gets… complicated
 
 - Data and task pipeline requirements grow
@@ -50,6 +58,19 @@ requirements.txt
 
 By the end of this section, you will be able to run Airflow, and the Django projects will both be able to connect to Postgres databases. 
 
+Note that getting Airflow to work on Windows is a bit painful. If you are using a windows machine please try use Linux subsystem for windows, or a Linux VM or container.
+
 1. [Install dependencies](docs/1-install-dependencies.md)
 2. [Set up Airflow](docs/2-setup-airflow.md)
 2. [Set up Django](docs/3-django-setup.md)
+
+## How to run the tutorial
+
+If you are presenting this to an audience then:
+
+1. Make use of the presentation. It was created using reveal.js
+2. When the presentation references a dag (eg DAG 1) then copy that dag into the airflow_home/dags directory
+3. When it references a plugin then copy that across into the plugins directory 
+
+Each dag file has a bunch of questions and notes at the top. If you can answer those questions then you are good.
+
